@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node {
+typedef mynode {
     int data;
-    struct node *left, *right;
-};
+    Mynode *left, *right;
+}*Mynode;
 
-struct node* newNode(int val) {
-    struct node* temp = (struct node*)malloc(sizeof(struct node));
+Mynode newNode(int val) {
+    Mynode temp = malloc(sizeof(mynode));
     temp->data = val;
     temp->left = temp->right = NULL;
     return temp;
 }
 
-struct node* insert(struct node* root, int val) {
+Mynode* insert(Mynode root, int val) {
     if (root == NULL)
         return newNode(val);
 
@@ -25,7 +25,7 @@ struct node* insert(struct node* root, int val) {
     return root;
 }
 
-void inorder(struct node* root) {
+void inorder(Mynode root) {
     if (root != NULL) {
         inorder(root->left);
         printf("%d ", root->data);
@@ -33,7 +33,7 @@ void inorder(struct node* root) {
     }
 }
 
-void preorder(struct node* root) {
+void preorder(Mynode root) {
     if (root != NULL) {
         printf("%d ", root->data);
         preorder(root->left);
@@ -41,7 +41,7 @@ void preorder(struct node* root) {
     }
 }
 
-void postorder(struct node* root) {
+void postorder(Mynode root) {
     if (root != NULL) {
         postorder(root->left);
         postorder(root->right);
@@ -50,7 +50,7 @@ void postorder(struct node* root) {
 }
 
 int main() {
-    struct node* root = NULL;
+    Mynode root = NULL;
 
     root = insert(root, 50);
     insert(root, 30);

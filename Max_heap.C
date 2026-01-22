@@ -14,12 +14,10 @@ void upHeap(int i) {
         i = i / 2;
     }
 }
-
 void insert(int val) {
     heap[++size] = val;
     upHeap(size);
 }
-
 void downHeap(int i) {
     int largest = i;
     int l = 2*i, r = 2*i + 1;

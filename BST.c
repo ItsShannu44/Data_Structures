@@ -47,7 +47,6 @@ void postorder(Mynode root) {
         printf("%d ", root->data);
     }
 }
-
 int main() {
     Mynode root = NULL;
 
@@ -66,7 +65,7 @@ int main() {
     printf("\nPostorder: ");
     postorder(root);
 
-    
+
     return 0;
 }
 

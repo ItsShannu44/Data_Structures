@@ -38,7 +38,6 @@ void deleteRoot() {
     heap[1] = heap[size--];
     downHeap(1);
 }
-
 void display() {
     for (int i = 1; i <= size; i++)
         printf("%d ", heap[i]);

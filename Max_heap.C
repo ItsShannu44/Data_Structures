@@ -34,7 +34,6 @@ void downHeap(int i) {
         downHeap(largest);
     }
 }
-
 void deleteRoot() {
     heap[1] = heap[size--];
     downHeap(1);

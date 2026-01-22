@@ -49,7 +49,6 @@ void postorder(Mynode root) {
 }
 int main() {
     Mynode root = NULL;
-
     root = insert(root, 50);
     insert(root, 30);
     insert(root, 70);

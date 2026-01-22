@@ -43,7 +43,6 @@ void display() {
     for (int i = 1; i <= size; i++)
         printf("%d ", heap[i]);
 }
-
 int main() {
     insert(10);
     insert(30);

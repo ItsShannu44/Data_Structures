@@ -12,7 +12,6 @@ Mynode newNode(int val) {
     temp->left = temp->right = NULL;
     return temp;
 }
-
 Mynode* insert(Mynode root, int val) {
     if (root == NULL)
         return newNode(val);

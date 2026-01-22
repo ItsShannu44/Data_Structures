@@ -6,6 +6,7 @@ typedef mynode {
     Mynode *left, *right;
 }*Mynode;
 
+
 Mynode newNode(int val) {
     Mynode temp = malloc(sizeof(mynode));
     temp->data = val;

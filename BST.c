@@ -41,6 +41,7 @@ void preorder(Mynode root) {
     }
 }
 
+
 void postorder(Mynode root) {
     if (root != NULL) {
         postorder(root->left);

@@ -58,6 +58,8 @@ int main() {
     printf("\nAfter deleting root: ");
     display();
 
+
+    
     return 0;
 }
 

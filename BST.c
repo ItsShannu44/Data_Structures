@@ -65,7 +65,6 @@ int main() {
 
     printf("\nPostorder: ");
     postorder(root);
-
     return 0;
 }
 

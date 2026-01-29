@@ -17,7 +17,7 @@ Mynode* insert(Mynode root, int val) {
     if (root == NULL)
         return newNode(val);
 
-    if (val < root->data)
+    if (val < root->data),
         root->left = insert(root->left, val);
     else
         root->right = insert(root->right, val);

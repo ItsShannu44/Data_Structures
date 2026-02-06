@@ -80,7 +80,6 @@ Mynode deleteNode(Mynode root, int key) {
 
 int main() {
     Mynode root = NULL;
-
     root = insert(root, 50);
     root = insert(root, 30);
     root = insert(root, 70);

@@ -47,6 +47,19 @@ NODE Ins_End(NODE H,int data)
     curr->next->prev=curr;
     return H;
 }
+NODE Del_Frnt(NODE H)
+{
+    if(H==NULL)
+    {
+        printf("Empty list.");
+        return NULL;
+    }
+    printf("%d deleted from frnt.\n",H->data);
+    H=H->next;
+    free(H->prev);
+    H->prev=NULL;
+    return H;
+}
 void Display(NODE H)
 {
     NODE T=H;
@@ -64,6 +77,8 @@ int main()
     H=Ins_Frnt(H,78);
     Display(H);
     H=Ins_End(H,90);
+    Display(H);
+    H=Del_Frnt(H);
     Display(H);
     return 0;
 }

@@ -6,18 +6,18 @@ typedef struct node {
     struct node *link;
 } *Node;
 
-Node push(Node top, int element) {
-    Node nn = (Node)malloc(sizeof(struct node));
+Node push(Node top, int ele) {
+    Node nn = malloc(sizeof(struct node));
     if (nn == NULL) {
         printf("\nStack Overflow!");
         return top;
     }
 
-    nn->data = element;
+    nn->data = ele;
     nn->link = top;
     top = nn;
 
-    printf("\nPushed: %d", element);
+    printf("\nPushed: %d", ele);
     return top;
 }
 

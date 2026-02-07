@@ -11,7 +11,7 @@ void init(DEQUE *dq) {
     dq->rear = -1;
 }
 
-/* Insert at front */
+
 void insertFront(DEQUE *dq, int x) {
     if ((dq->front == 0 && dq->rear == MAX-1) || (dq->front == dq->rear + 1)) {
         printf("\nDeque Overflow");
@@ -30,7 +30,7 @@ void insertFront(DEQUE *dq, int x) {
     printf("\nInserted %d at front", x);
 }
 
-/* Insert at rear */
+
 void insertRear(DEQUE *dq, int x) {
     if ((dq->front == 0 && dq->rear == MAX-1) || (dq->front == dq->rear + 1)) {
         printf("\nDeque Overflow");
@@ -49,7 +49,7 @@ void insertRear(DEQUE *dq, int x) {
     printf("\nInserted %d at rear", x);
 }
 
-/* Delete from front */
+
 void deleteFront(DEQUE *dq) {
     if (dq->front == -1) {
         printf("\nDeque Underflow");
@@ -67,7 +67,6 @@ void deleteFront(DEQUE *dq) {
     }
 }
 
-/* Delete from rear */
 void deleteRear(DEQUE *dq) {
     if (dq->front == -1) {
         printf("\nDeque Underflow");
@@ -85,7 +84,6 @@ void deleteRear(DEQUE *dq) {
     }
 }
 
-/* Display deque */
 void display(DEQUE *dq) {
     if (dq->front == -1) {
         printf("\nDeque is Empty");
@@ -102,7 +100,6 @@ void display(DEQUE *dq) {
     }
 }
 
-/* Main */
 int main() {
     DEQUE dq;
     init(&dq);

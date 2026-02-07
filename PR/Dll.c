@@ -60,6 +60,46 @@ NODE Del_Frnt(NODE H)
     H->prev=NULL;
     return H;
 }
+NODE Del_End(NODE H)
+{
+    if(H==NULL)
+    {
+        printf("Empty List");
+        return H;
+    }
+    NODE curr=H;
+    while(curr->next->next!=NULL)
+    {
+        curr=curr->next;
+    }
+    printf("%d Deleted from End\n",curr->next->data);
+    free(curr->next);
+    curr->next=NULL;
+    return H;
+    
+}
+NODE Sort(NODE H)
+{
+    NODE i,j;
+    int temp;
+    if(H==NULL)
+    {
+        return H;
+    }
+    for(i=H;i->next!=NULL;i=i->next)
+    {
+        for(j=i->next;j!= NULL;j=j->next)
+        {
+            if(j->data < i->data)
+            {
+                temp=i->data;
+                i->data=j->data;
+                j->data=temp;
+            }
+        }
+    }
+    return H;
+}
 void Display(NODE H)
 {
     NODE T=H;
@@ -75,10 +115,16 @@ int main()
     NODE H=NULL;
     H=Ins_Frnt(H,45);
     H=Ins_Frnt(H,78);
+    H=Ins_Frnt(H,5);
+    H=Ins_Frnt(H,120);
+    H=Ins_Frnt(H,30);
     Display(H);
     H=Ins_End(H,90);
     Display(H);
     H=Del_Frnt(H);
+    H=Del_End(H);
+    Display(H);
+    H=Sort(H);
     Display(H);
     return 0;
 }

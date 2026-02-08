@@ -1,94 +1,97 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct mynode {
+typedef struct MyNode {
     int data;
-    struct mynode *left, *right;
-} *Mynode;
+    struct MyNode *left, *right;
+} *Node;
 
-Mynode newNode(int val) {
-    Mynode temp = (Mynode)malloc(sizeof(struct mynode));
-    temp->data = val;
-    temp->left = temp->right = NULL;
-    return temp;
+Node createNode(int value) {
+    Node nn = (Node)malloc(sizeof(struct MyNode));
+    if (nn == NULL) {
+        printf("Memory allocation failed\n");
+        return NULL;
+    }
+    nn->data = value;
+    nn->left = nn->right = NULL;
+    return nn;
 }
-Mynode insert(Mynode root, int val) {
+Node insert(Node root, int value) {
     if (root == NULL)
-        return newNode(val);
+        return createNode(value);
 
-    if (val < root->data)
-        root->left = insert(root->left, val);
-    else if (val > root->data)
-        root->right = insert(root->right, val);
+    if (value < root->data)
+        root->left = insert(root->left, value);
+    else if (value > root->data)
+        root->right = insert(root->right, value);
 
     return root;
 }
-
-
-Mynode findLargestNode(Mynode root) {
-    if (root == NULL)
-        return NULL;
-
+Node findLargestNode(Node root) {
     while (root->right != NULL)
         root = root->right;
-
     return root;
 }
-
-
-Mynode deleteNode(Mynode root, int key) {
-
+Node deleteNode(Node root, int key) {
     if (root == NULL) {
         printf("Item not found in tree\n");
         return root;
     }
 
-    if (key < root->data) {
+    if (key < root->data)
         root->left = deleteNode(root->left, key);
-    }
-    else if (key > root->data) {
+    else if (key > root->data)
         root->right = deleteNode(root->right, key);
-    }
     else {
-        /* Leaf node */
+        /* Case 1: Leaf node */
         if (root->left == NULL && root->right == NULL) {
             free(root);
             return NULL;
         }
-        /* Only right child */
+        /* Case 2: One child (right) */
         else if (root->left == NULL) {
-            Mynode temp = root;
+            Node temp = root;
             root = root->right;
             free(temp);
         }
-        /* Only left child */
+        /* Case 3: One child (left) */
         else if (root->right == NULL) {
-            Mynode temp = root;
+            Node temp = root;
             root = root->left;
             free(temp);
         }
-        /* Two children */
+        /* Case 4: Two children */
         else {
-            Mynode temp = findLargestNode(root->left);
+            Node temp = findLargestNode(root->left);
             root->data = temp->data;
             root->left = deleteNode(root->left, temp->data);
         }
     }
-
     return root;
 }
 
+void inorder(Node root) {
+    if (root != NULL) {
+        inorder(root->left);
+        printf("%d ", root->data);
+        inorder(root->right);
+    }
+}
 int main() {
-    Mynode root = NULL;
-    root = insert(root, 50);
-    root = insert(root, 30);
-    root = insert(root, 70);
-    root = insert(root, 20);
-    root = insert(root, 40);
-    root = insert(root, 60);
-    root = insert(root, 80);
+    Node root = NULL;
 
-    root = deleteNode(root, 50);
+    root = insert(root, 20);
+    root = insert(root, 10);
+    root = insert(root, 30);
+    root = insert(root, 5);
+    root = insert(root, 15);
+
+    printf("Inorder traversal:\n");
+    inorder(root);
+
+    printf("\nAfter deleting 10:\n");
+    root = deleteNode(root, 10);
+    inorder(root);
 
     return 0;
 }

@@ -92,6 +92,10 @@ int main() {
     printf("\nAfter deleting 10:\n");
     root = deleteNode(root, 10);
     inorder(root);
-
+    Node large=findLargestNode(root);
+    if(large!=NULL)
+    {
+        printf("\n%d is largest.\n",large->data);
+    }
     return 0;
 }

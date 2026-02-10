@@ -85,6 +85,23 @@ void display(NODE H)
     printf("NULL");
     printf("\n");
 }
+void reverseDisplay(NODE H)
+{
+    NODE curr = H;
+    if (curr == NULL)
+        return;
+
+    while (curr->rlink != NULL)
+        curr = curr->rlink;
+
+    while (curr != NULL)
+    {
+        printf("%d->", curr->data);
+        curr = curr->llink;
+    }
+    printf("NULL\n");
+}
+
 NODE sort_dll(NODE H)
 {
     NODE i, j;
@@ -124,5 +141,6 @@ int main()
     display(H);
     H=sort_dll(H);
     display(H);
+    reverseDisplay(H);
     return 0;
 }

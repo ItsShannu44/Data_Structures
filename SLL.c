@@ -20,8 +20,8 @@ Node Create_Node(int value) {
 
 Node Insert_Front(Node H, int value) {
     Node nn = Create_Node(value);
-    if (nn == NULL)
-        return H;
+    if (H == NULL)
+        return nn;
 
     nn->link = H;
     return nn;

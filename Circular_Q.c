@@ -43,6 +43,8 @@ NODE insert_front(NODE HEADER, int data)
     return HEADER;
 }
 
+
+
 NODE insert_end(NODE HEADER, int data)
 {
     NODE new_node = create_node(data);

@@ -24,7 +24,6 @@ Mynode* insert(Mynode root, int val) {
 
     return root;
 }
-
 void inorder(Mynode root) {
     if (root != NULL) {
         inorder(root->left);
